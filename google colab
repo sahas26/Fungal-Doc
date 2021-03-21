@@ -1,0 +1,128 @@
+!pip install tensorflow-gpu
+
+Collecting tensorflow-gpu
+  Downloading https://files.pythonhosted.org/packages/85/cc/a27e73cf8b23f2ce4bdd2b7089a42a7819ce6dd7366dceba406ddc5daa9c/tensorflow_gpu-2.4.1-cp37-cp37m-manylinux2010_x86_64.whl (394.3MB)
+     |████████████████████████████████| 394.3MB 35kB/s 
+Requirement already satisfied: astunparse~=1.6.3 in /usr/local/lib/python3.7/dist-packages (from tensorflow-gpu) (1.6.3)
+Requirement already satisfied: tensorflow-estimator<2.5.0,>=2.4.0 in /usr/local/lib/python3.7/dist-packages (from tensorflow-gpu) (2.4.0)
+Requirement already satisfied: opt-einsum~=3.3.0 in /usr/local/lib/python3.7/dist-packages (from tensorflow-gpu) (3.3.0)
+Requirement already satisfied: typing-extensions~=3.7.4 in /usr/local/lib/python3.7/dist-packages (from tensorflow-gpu) (3.7.4.3)
+Requirement already satisfied: tensorboard~=2.4 in /usr/local/lib/python3.7/dist-packages (from tensorflow-gpu) (2.4.1)
+Requirement already satisfied: gast==0.3.3 in /usr/local/lib/python3.7/dist-packages (from tensorflow-gpu) (0.3.3)
+Requirement already satisfied: keras-preprocessing~=1.1.2 in /usr/local/lib/python3.7/dist-packages (from tensorflow-gpu) (1.1.2)
+Requirement already satisfied: grpcio~=1.32.0 in /usr/local/lib/python3.7/dist-packages (from tensorflow-gpu) (1.32.0)
+Requirement already satisfied: flatbuffers~=1.12.0 in /usr/local/lib/python3.7/dist-packages (from tensorflow-gpu) (1.12)
+Requirement already satisfied: six~=1.15.0 in /usr/local/lib/python3.7/dist-packages (from tensorflow-gpu) (1.15.0)
+Requirement already satisfied: wrapt~=1.12.1 in /usr/local/lib/python3.7/dist-packages (from tensorflow-gpu) (1.12.1)
+Requirement already satisfied: google-pasta~=0.2 in /usr/local/lib/python3.7/dist-packages (from tensorflow-gpu) (0.2.0)
+Requirement already satisfied: termcolor~=1.1.0 in /usr/local/lib/python3.7/dist-packages (from tensorflow-gpu) (1.1.0)
+Requirement already satisfied: numpy~=1.19.2 in /usr/local/lib/python3.7/dist-packages (from tensorflow-gpu) (1.19.5)
+Requirement already satisfied: h5py~=2.10.0 in /usr/local/lib/python3.7/dist-packages (from tensorflow-gpu) (2.10.0)
+Requirement already satisfied: wheel~=0.35 in /usr/local/lib/python3.7/dist-packages (from tensorflow-gpu) (0.36.2)
+Requirement already satisfied: protobuf>=3.9.2 in /usr/local/lib/python3.7/dist-packages (from tensorflow-gpu) (3.12.4)
+Requirement already satisfied: absl-py~=0.10 in /usr/local/lib/python3.7/dist-packages (from tensorflow-gpu) (0.10.0)
+Requirement already satisfied: werkzeug>=0.11.15 in /usr/local/lib/python3.7/dist-packages (from tensorboard~=2.4->tensorflow-gpu) (1.0.1)
+Requirement already satisfied: google-auth<2,>=1.6.3 in /usr/local/lib/python3.7/dist-packages (from tensorboard~=2.4->tensorflow-gpu) (1.27.1)
+Requirement already satisfied: requests<3,>=2.21.0 in /usr/local/lib/python3.7/dist-packages (from tensorboard~=2.4->tensorflow-gpu) (2.23.0)
+Requirement already satisfied: markdown>=2.6.8 in /usr/local/lib/python3.7/dist-packages (from tensorboard~=2.4->tensorflow-gpu) (3.3.4)
+Requirement already satisfied: setuptools>=41.0.0 in /usr/local/lib/python3.7/dist-packages (from tensorboard~=2.4->tensorflow-gpu) (54.1.2)
+Requirement already satisfied: google-auth-oauthlib<0.5,>=0.4.1 in /usr/local/lib/python3.7/dist-packages (from tensorboard~=2.4->tensorflow-gpu) (0.4.3)
+Requirement already satisfied: tensorboard-plugin-wit>=1.6.0 in /usr/local/lib/python3.7/dist-packages (from tensorboard~=2.4->tensorflow-gpu) (1.8.0)
+Requirement already satisfied: cachetools<5.0,>=2.0.0 in /usr/local/lib/python3.7/dist-packages (from google-auth<2,>=1.6.3->tensorboard~=2.4->tensorflow-gpu) (4.2.1)
+Requirement already satisfied: pyasn1-modules>=0.2.1 in /usr/local/lib/python3.7/dist-packages (from google-auth<2,>=1.6.3->tensorboard~=2.4->tensorflow-gpu) (0.2.8)
+Requirement already satisfied: rsa<5,>=3.1.4; python_version >= "3.6" in /usr/local/lib/python3.7/dist-packages (from google-auth<2,>=1.6.3->tensorboard~=2.4->tensorflow-gpu) (4.7.2)
+Requirement already satisfied: certifi>=2017.4.17 in /usr/local/lib/python3.7/dist-packages (from requests<3,>=2.21.0->tensorboard~=2.4->tensorflow-gpu) (2020.12.5)
+Requirement already satisfied: idna<3,>=2.5 in /usr/local/lib/python3.7/dist-packages (from requests<3,>=2.21.0->tensorboard~=2.4->tensorflow-gpu) (2.10)
+Requirement already satisfied: chardet<4,>=3.0.2 in /usr/local/lib/python3.7/dist-packages (from requests<3,>=2.21.0->tensorboard~=2.4->tensorflow-gpu) (3.0.4)
+Requirement already satisfied: urllib3!=1.25.0,!=1.25.1,<1.26,>=1.21.1 in /usr/local/lib/python3.7/dist-packages (from requests<3,>=2.21.0->tensorboard~=2.4->tensorflow-gpu) (1.24.3)
+Requirement already satisfied: importlib-metadata; python_version < "3.8" in /usr/local/lib/python3.7/dist-packages (from markdown>=2.6.8->tensorboard~=2.4->tensorflow-gpu) (3.7.2)
+Requirement already satisfied: requests-oauthlib>=0.7.0 in /usr/local/lib/python3.7/dist-packages (from google-auth-oauthlib<0.5,>=0.4.1->tensorboard~=2.4->tensorflow-gpu) (1.3.0)
+Requirement already satisfied: pyasn1<0.5.0,>=0.4.6 in /usr/local/lib/python3.7/dist-packages (from pyasn1-modules>=0.2.1->google-auth<2,>=1.6.3->tensorboard~=2.4->tensorflow-gpu) (0.4.8)
+Requirement already satisfied: zipp>=0.5 in /usr/local/lib/python3.7/dist-packages (from importlib-metadata; python_version < "3.8"->markdown>=2.6.8->tensorboard~=2.4->tensorflow-gpu) (3.4.1)
+Requirement already satisfied: oauthlib>=3.0.0 in /usr/local/lib/python3.7/dist-packages (from requests-oauthlib>=0.7.0->google-auth-oauthlib<0.5,>=0.4.1->tensorboard~=2.4->tensorflow-gpu) (3.1.0)
+Installing collected packages: tensorflow-gpu
+Successfully installed tensorflow-gpu-2.4.1
+
+
+# import the libraries as shown below
+
+from tensorflow.keras.layers import Input, Lambda, Dense, Flatten
+from tensorflow.keras.models import Model
+from tensorflow.keras.applications.inception_v3 import InceptionV3
+#from keras.applications.vgg16 import VGG16
+from tensorflow.keras.applications.inception_v3 import preprocess_input
+from tensorflow.keras.preprocessing import image
+from tensorflow.keras.preprocessing.image import ImageDataGenerator,load_img
+from tensorflow.keras.models import Sequential
+import numpy as np
+from glob import glob
+
+# re-size all the images to this
+IMAGE_SIZE = [224, 224]
+
+train_path = '/content/drive/MyDrive/SDGP/SDGP LABELD/train'
+valid_path = '/content/drive/MyDrive/SDGP/SDGP LABELD/test'
+
+# Import the Inception V3 library as shown below and add preprocessing layer to the front of VGG
+# Here we will be using imagenet weights
+
+inception = InceptionV3(input_shape=IMAGE_SIZE + [3], weights='imagenet', include_top=False)
+
+
+# don't train existing weights
+for layer in inception.layers:
+    layer.trainable = False
+    
+    # useful for getting number of output classes
+folders = glob('/content/drive/MyDrive/SDGP/
+
+folders
+
+# our layers - you can add more if you want
+x = Flatten()(inception.output)
+
+prediction = Dense(len(folders), activation='softmax')(x)
+
+# create a model object
+model = Model(inputs=inception.input, outputs
+
+# view the structure of the model
+model.summary()
+
+# tell the model what cost and optimization method to use
+model.compile(
+  loss='categorical_crossentropy',
+  optimizer='adam',
+  metrics=['accuracy']
+)
+
+# Use the Image Data Generator to import the images from the dataset
+from tensorflow.keras.preprocessing.image import ImageDataGenerator
+
+train_datagen = ImageDataGenerator(rescale = 1./255,
+                                   shear_range = 0.2,
+                                   zoom_range = 0.2,
+                                   horizontal_flip = True)
+
+test_datagen = ImageDataGenerator(rescale = 1./255)
+
+test_set = test_datagen.flow_from_directory('/content/drive/MyDrive/SDGP/SDGP LABELD/test',
+                                            target_size = (224, 224),
+                                            batch_size = 8,
+                                            class_mode = 'categorical')
+                                            
+                                            # Make sure you provide the same target size as initialied for the image size
+training_set = train_datagen.flow_from_directory('/content/drive/MyDrive/SDGP/SDGP LABELD/train',
+                                                 target_size = (224, 224),
+                                                 batch_size = 8,
+                                                 class_mode = 'categorical')
+                                                 
+                                                 # fit the model
+# Run the cell. It will take some time to execute
+r = model.fit_generator(
+  training_set,
+  validation_data=test_set,
+  epochs=10,
+  steps_per_epoch=len(training_set),
+  validation_steps=len(test_set)
+)
