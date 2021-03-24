@@ -1,0 +1,59 @@
+package com.company;
+
+import java.util.Arrays;
+import java.util.Scanner;
+
+public class Main {
+
+    public static void main(String[] args) {
+
+        int[] coins = {5, 2, 1};
+        int count = 0;
+        int[] solution = new int[count];
+
+        
+
+        int sum = 0;
+
+        for (int i = 0; i < coins.length; i++) {
+
+            while (28 >= coins[i] + sum) {
+
+                sum = sum + coins[i];
+                System.out.println(coins[i]);
+
+                solution=addX(count,solution,coins[i]);
+                count++;
+
+
+            }
+
+            
+
+
+        }
+        System.out.println(Arrays.toString(solution));
+
+
+
+    }
+    public static int[] addX(int n, int arr[], int x)
+    {
+        int i;
+
+        // create a new array of size n+1
+        int newarr[] = new int[n + 1];
+
+        // insert the elements from
+        // the old array into the new array
+        // insert all elements till n
+        // then insert x at n+1
+        for (i = 0; i < n; i++)
+            newarr[i] = arr[i];
+
+        newarr[n] = x;
+
+        return newarr;
+    }
+    }
+
