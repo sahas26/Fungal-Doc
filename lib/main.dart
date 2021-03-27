@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -169,9 +170,101 @@ class Detector extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(title: Text("Detector"),),
-      body: Center(),
+      body: Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 20,vertical: 20),
+        child: ListView(
+          children: <Widget>[
+            SizedBox(height: 50,),
+            imagePreview(),
+            SizedBox(height: 40),
+            addImage(),
+            SizedBox(height: 20,),
+            proceedButton(),
+            SizedBox(height: 50,),
+          ],
+        ),
+      )
     );
   }
+}
+
+Widget imagePreview() {
+  return Center(
+    child: Stack(children: <Widget>[
+      CircleAvatar(
+        radius: 150,
+        backgroundImage: AssetImage("assets/insert-image-here.png"),
+        ),
+      ],
+    ),
+  );
+}
+
+Widget addImage(){
+  return Container(
+    padding: const EdgeInsets.symmetric(horizontal: 50,vertical: 0),
+    child: Column(
+      children: <Widget>[
+        Text(
+          "Choose an image",
+          style: TextStyle(
+            color: Colors.blue,
+            fontSize: 15.0,
+          ),
+        ),
+        SizedBox(
+          height: 20,
+        ),
+        FlatButton.icon(
+          shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(18.0),
+              side: BorderSide(color: Colors.blue)),
+          color: Colors.white,
+          textColor: Colors.blue,
+          minWidth: 180,
+          height: 40,
+          padding: EdgeInsets.all(5.0),
+            onPressed: () {},
+            icon: Icon(Icons.camera),
+            label: Text("Camera"),
+        ),
+        SizedBox(
+          height: 20,
+        ),
+        FlatButton.icon(
+          shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(18.0),
+              side: BorderSide(color: Colors.blue)),
+          color: Colors.white,
+          textColor: Colors.blue,
+          minWidth: 180,
+          height: 40,
+          padding: EdgeInsets.all(5.0),
+            onPressed: () {},
+            icon: Icon(Icons.image),
+            label: Text("Gallery"),
+        ),
+      ],
+    ),
+  );
+}
+
+Widget proceedButton(){
+  return Center(
+    child: FlatButton(
+      shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(18.0),
+          side: BorderSide(color: Colors.blue)),
+      color: Colors.blueAccent,
+      textColor: Colors.white,
+      minWidth: 180,
+      height: 40,
+      padding: EdgeInsets.all(5.0),
+      onPressed: () {
+      },
+      child: Text("Proceed"),
+    ),
+  );
 }
 
 class DoctorDetails extends StatelessWidget {
