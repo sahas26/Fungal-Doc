@@ -1,0 +1,18 @@
+       
+DIR_PATH = r"D:\do\dateabn"
+for i in os.listdir(DIR_PATH):
+    img = image.load_img(DIR_PATH+"//"+i,target_size=(200,200))
+    plt.imshow(img)
+    plt.show()
+
+
+    x = image.img_to_array(img)
+    x =np.expand_dims(x,axis = 0)
+    images = np.vstack([x])
+    val = model.predict(images)
+    if val==0:
+        print("ete5y")
+    if val==1:
+        print("ttg4settis")
+    else:
+        print("gtfeg")
