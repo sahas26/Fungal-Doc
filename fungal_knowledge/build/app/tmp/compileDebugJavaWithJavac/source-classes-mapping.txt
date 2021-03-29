@@ -1,0 +1,4 @@
+io/flutter/plugins/GeneratedPluginRegistrant.java
+ io.flutter.plugins.GeneratedPluginRegistrant
+com/example/fungal_knowledge/BuildConfig.java
+ com.example.fungal_knowledge.BuildConfig
