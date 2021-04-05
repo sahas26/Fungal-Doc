@@ -1,0 +1,44 @@
+ @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_result);
+
+        getWindow().setStatusBarColor( getColor( android.R.color.white ) ) ;
+
+        sampleImageView = findViewById( R.id.sampleImageView ) ;
+        resultTextView = findViewById( R.id.resultText ) ;
+
+        recognizer = new SkinDiseaseRecognizer( this ) ;
+
+        try {
+            launchCameraIntent();
+            new ImagesLoadTask().execute( getImagePaths() ) ;
+        }
+        catch ( Exception e ) {
+            e.printStackTrace();
+        }
+
+    }
+
+    private void launchCameraIntent(){
+        Intent cameraIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE) ;
+        startActivityForResult( cameraIntent , CAMERA_REQUEST_CODE );
+    }
+
+    private String[] getImagePaths() {
+        File rootDir = new File( Environment.getExternalStorageDirectory() + "/Android/data/" +
+                getPackageName() + "/images" );
+        File[] imageFiles = rootDir.listFiles() ;
+        Arrays.sort(imageFiles, new Comparator<File>() {
+            @Override
+            public int compare(File o1, File o2) {
+                return o1.getName().compareTo( o2.getName() );
+            }
+        });
+        String[] paths = new String[ imageFiles.length ] ;
+        for ( int i = 0 ; i < imageFiles.length ; i ++ ) {
+            paths[i] = imageFiles[i].getAbsolutePath() ;
+            Log.e( ResultActivity.class.getSimpleName() , "RESULT PATH : " + imageFiles[i].getAbsolutePath()  ) ;
+        }
+        return paths ;
+    }
