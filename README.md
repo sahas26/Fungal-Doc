@@ -1,6 +1,6 @@
-# fungal_doc
+# fungal_knowledge
 
-Fungal Doc Application
+A new Flutter application.
 
 ## Getting Started
 
